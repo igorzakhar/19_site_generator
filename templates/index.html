@@ -1,22 +1,14 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        {% if title %}
-        <title>{{ title }}</title>
-        {% else %}
-        <title>Энциклопедия</title>
-        {% endif %}
-    </head>
-    <body>
-        {% for topic in topics %}
+{% extends "base.html" %}
+
+{% block content %}
+{% for topic in topics %}
+    <ul>
         <h1>{{topic['title']}}</h1>
-        <ul>
-            {% for article in articles %}
+        {% for article in articles %}
             {% if article['topic'] == topic['slug'] %}
             <li><a href="{{ 'site/{}'.format(article['source'].replace('md', 'html'))|e }}">{{ article['title']|e }}</a></li>
-             {% endif %}
-            {% endfor %}
-        </ul>
+            {% endif %}
         {% endfor %}
-    </body>
-</html>
+    </ul>
+{% endfor %}
+{% endblock %}
