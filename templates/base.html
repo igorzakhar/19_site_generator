@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% if title %}
+    <title>{{title}}</title>
+    {% else %}
+    <title>{{title}} - Энциклопедия</title>
+    {% endif %}
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    {% block content %}{% endblock %}
+  </body>
+</html>
+
