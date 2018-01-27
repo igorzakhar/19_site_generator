@@ -5,9 +5,9 @@ from jinja2 import Environment, FileSystemLoader
 import markdown
 
 
-def load_file(filename):
+def load_json_data(filename):
     with open(filename, 'r') as file:
-        return file.read()
+        return json.load(file)
 
 
 def save_file(data):
@@ -29,8 +29,7 @@ def get_templates():
 
 
 if __name__ == '__main__':
-    json_data = json.loads(load_file('config.json'))
-    html = load_file('templates/index.html')
+    json_data = load_json_data('config.json')
     index_html, article_html = get_templates()
     render = render_index_page(json_data, index_html)
     save_file(render)
