@@ -5,15 +5,14 @@
 <div class="row">
 {% for topic in topics %}
 <div class="col-md-4">
-    <h4>{{topic['title']}}</h1>
-        <ul>
-        
-        {% for article in articles %}
-            {% if article['topic'] == topic['slug'] %}
-            <li><a href="{{ 'site/{}'.format(article['source'].replace('md', 'html'))|e }}">{{ article['title']|e }}</a></li>
-            {% endif %}
-        {% endfor %}
-        </ul>
+  <h4>{{topic['title']}}</h1>
+    <ul class = "list-unstyled" >
+    {% for article in articles %}
+      {% if article['topic'] == topic['slug'] %}
+        <li><a href="{{ 'site/{}'.format(article['source'].replace('md', 'html'))|e }}">{{ article['title']|e }}</a></li>
+      {% endif %}
+    {% endfor %}
+    </ul>
 </div>
 {% endfor %}
 </div>
