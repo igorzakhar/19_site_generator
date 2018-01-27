@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         {% if title %}
@@ -12,7 +13,7 @@
         <ul>
             {% for article in articles %}
             {% if article['topic'] == topic['slug'] %}
-            <li>{{ article['title']|e }}</li>
+            <li><a href="{{ 'site/{}'.format(article['source'].replace('md', 'html'))|e }}">{{ article['title']|e }}</a></li>
              {% endif %}
             {% endfor %}
         </ul>
