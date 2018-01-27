@@ -1,0 +1,21 @@
+<html>
+    <head>
+        {% if title %}
+        <title>{{ title }}</title>
+        {% else %}
+        <title>Энциклопедия</title>
+        {% endif %}
+    </head>
+    <body>
+        {% for topic in topics %}
+        <h1>{{topic['title']}}</h1>
+        <ul>
+            {% for article in articles %}
+            {% if article['topic'] == topic['slug'] %}
+            <li>{{ article['title']|e }}</li>
+             {% endif %}
+            {% endfor %}
+        </ul>
+        {% endfor %}
+    </body>
+</html>
