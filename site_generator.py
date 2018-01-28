@@ -42,6 +42,7 @@ def render_article_page(content, template):
 def main():
     json_data = json.loads(load_file('config.json'))
     index_template, article_template = get_templates()
+
     index_html = render_index_page(json_data, index_template)
     save_file('./index.html', index_html)
 
