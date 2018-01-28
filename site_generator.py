@@ -14,12 +14,12 @@ def load_file(filename):
         return file.read()
 
 
-def save_file(filename, data):
+def save_file(filename, html_page):
     path_for_save = os.path.dirname(filename)
     if not os.path.exists(path_for_save):
         os.makedirs(path_for_save)
     with open(filename, 'w') as file:
-        file.write(data)
+        file.write(html_page)
 
 
 def get_templates():
