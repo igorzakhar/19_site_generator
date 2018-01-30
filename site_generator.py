@@ -44,7 +44,8 @@ def main():
     index_template, article_template = get_templates()
 
     index_html = render_index_page(json_data, index_template)
-    save_file('./index.html', index_html)
+    index_path = '{}/index.html'.format(SITE_DIR)
+    save_file(index_path, index_html)
 
     for article in json_data['articles']:
         article_file = BASE_DIR + article['source']
